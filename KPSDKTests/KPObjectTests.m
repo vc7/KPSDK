@@ -39,7 +39,7 @@
 - (void)testDefaultValues
 {
     XCTAssertNil(self.testObject.objectId);
-    XCTAssertEqualObjects(self.testObject.kpClassName, @"Object");
+    XCTAssertEqualObjects([KPObject kpClassName], @"Object");
 }
 
 @end

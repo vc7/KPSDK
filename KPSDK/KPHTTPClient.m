@@ -172,5 +172,16 @@ NSString * const kKPRequestPathVideos = @"videos";
         failure(task, error);
     }];
 }
-
+- (void)getArticlesByCategoryId:(NSString *)objectId page:(NSInteger)page success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+    [self getArticlesByCategoryId:objectId page:page pageSize:100 success:success failure:failure];
+}
+- (void)getArticlesByCategoryId:(NSString *)objectId pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+    [self getArticlesByCategoryId:objectId page:0 pageSize:pageSize success:success failure:failure];
+}
+- (void)getArticlesByCategoryId:(NSString *)objectId success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+    [self getArticlesByCategoryId:objectId page:0 pageSize:100 success:success failure:failure];
+}
 @end

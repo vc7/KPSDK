@@ -13,6 +13,7 @@
 #import "KPHTTPClient.h"
 
 #import "KPObject.h"
+#import "KPCategory.h"
 
 @interface KPSDK : NSObject
 

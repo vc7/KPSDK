@@ -29,7 +29,9 @@
 		BFC2950F19A850B3007E9BCD /* KPObject.h in Headers */ = {isa = PBXBuildFile; fileRef = BF77DD9519A7A7B700E3900C /* KPObject.h */; };
 		BFC2951219A86CD3007E9BCD /* KPCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = BFC2951019A86CD3007E9BCD /* KPCategory.h */; };
 		BFC2951319A86CD3007E9BCD /* KPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC2951119A86CD3007E9BCD /* KPCategory.m */; };
-		C0C4CD25F4B24D04A1BFD2E0 /* libPods-KPSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67F20EC07DB84DA0A7AD39FD /* libPods-KPSDK.a */; };
+		BFC2951719A8729C007E9BCD /* KPCategoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC2951619A8729C007E9BCD /* KPCategoryTests.m */; };
+		BFC2951A19A88012007E9BCD /* KPArticle.h in Headers */ = {isa = PBXBuildFile; fileRef = BFC2951819A88012007E9BCD /* KPArticle.h */; };
+		BFC2951B19A88012007E9BCD /* KPArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC2951919A88012007E9BCD /* KPArticle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,10 +58,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0AC9EC8C979E4B1FA882DAD5 /* Pods-KPSDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KPSDK.xcconfig"; path = "Pods/Pods-KPSDK.xcconfig"; sourceTree = "<group>"; };
 		67F20EC07DB84DA0A7AD39FD /* libPods-KPSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KPSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B9780D5C7AD437C982A66FB /* libPods-KPSDKTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KPSDKTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7EC16342944A46F39265EB60 /* Pods-KPSDKTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KPSDKTests.xcconfig"; path = "Pods/Pods-KPSDKTests.xcconfig"; sourceTree = "<group>"; };
 		A9047C23353C45D5832DFFE3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		BF77DD6C19A7980A00E3900C /* libKPSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libKPSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF77DD6F19A7980A00E3900C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -82,6 +82,9 @@
 		BF7CEFA219A8439F006C28CB /* KPHTTPClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPHTTPClientTests.m; sourceTree = "<group>"; };
 		BFC2951019A86CD3007E9BCD /* KPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPCategory.h; sourceTree = "<group>"; };
 		BFC2951119A86CD3007E9BCD /* KPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPCategory.m; sourceTree = "<group>"; };
+		BFC2951619A8729C007E9BCD /* KPCategoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPCategoryTests.m; sourceTree = "<group>"; };
+		BFC2951819A88012007E9BCD /* KPArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPArticle.h; sourceTree = "<group>"; };
+		BFC2951919A88012007E9BCD /* KPArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPArticle.m; sourceTree = "<group>"; };
 		C6BE3AFEA8E14D0F99A78F10 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -92,7 +95,6 @@
 			files = (
 				BF77DD7019A7980A00E3900C /* Foundation.framework in Frameworks */,
 				3E1B74F21D5B47D6AA25C09F /* libPods.a in Frameworks */,
-				C0C4CD25F4B24D04A1BFD2E0 /* libPods-KPSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,8 +121,6 @@
 				BF77DD6E19A7980A00E3900C /* Frameworks */,
 				BF77DD6D19A7980A00E3900C /* Products */,
 				A9047C23353C45D5832DFFE3 /* Pods.xcconfig */,
-				7EC16342944A46F39265EB60 /* Pods-KPSDKTests.xcconfig */,
-				0AC9EC8C979E4B1FA882DAD5 /* Pods-KPSDK.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -159,6 +159,8 @@
 				BF77DD9619A7A7B700E3900C /* KPObject.m */,
 				BFC2951019A86CD3007E9BCD /* KPCategory.h */,
 				BFC2951119A86CD3007E9BCD /* KPCategory.m */,
+				BFC2951819A88012007E9BCD /* KPArticle.h */,
+				BFC2951919A88012007E9BCD /* KPArticle.m */,
 				BF77DD7219A7980A00E3900C /* Supporting Files */,
 			);
 			path = KPSDK;
@@ -178,6 +180,7 @@
 				BF77DD8B19A7980A00E3900C /* KPSDKTests.m */,
 				BF7CEF9619A7B3AB006C28CB /* KPObjectTests.m */,
 				BF7CEFA219A8439F006C28CB /* KPHTTPClientTests.m */,
+				BFC2951619A8729C007E9BCD /* KPCategoryTests.m */,
 				BF77DD8619A7980A00E3900C /* Supporting Files */,
 			);
 			path = KPSDKTests;
@@ -203,6 +206,7 @@
 				BFC2950D19A850B3007E9BCD /* KPSDK.h in Headers */,
 				BFC2950E19A850B3007E9BCD /* KPHTTPClient.h in Headers */,
 				BFC2950F19A850B3007E9BCD /* KPObject.h in Headers */,
+				BFC2951A19A88012007E9BCD /* KPArticle.h in Headers */,
 				BFC2951219A86CD3007E9BCD /* KPCategory.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF77DD9719A7A7B700E3900C /* KPObject.m in Sources */,
+				BFC2951B19A88012007E9BCD /* KPArticle.m in Sources */,
 				BF7CEF9E19A81657006C28CB /* KPDefines.m in Sources */,
 				BF7CEF9919A814DB006C28CB /* KPSDK.m in Sources */,
 				BF7CEFA119A81B9D006C28CB /* KPHTTPClient.m in Sources */,
@@ -368,6 +373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFC2951719A8729C007E9BCD /* KPCategoryTests.m in Sources */,
 				BF77DD8C19A7980A00E3900C /* KPSDKTests.m in Sources */,
 				BF7CEFA319A8439F006C28CB /* KPHTTPClientTests.m in Sources */,
 				BF7CEF9719A7B3AB006C28CB /* KPObjectTests.m in Sources */,

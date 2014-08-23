@@ -10,4 +10,6 @@
 
 @interface KPCategory : KPObject
 
+@property (nonatomic, strong) NSString *name;
+
 @end

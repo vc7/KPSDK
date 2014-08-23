@@ -17,6 +17,10 @@
 		BF77DD8A19A7980A00E3900C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF77DD8819A7980A00E3900C /* InfoPlist.strings */; };
 		BF77DD8C19A7980A00E3900C /* KPSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF77DD8B19A7980A00E3900C /* KPSDKTests.m */; };
 		BF77DD9719A7A7B700E3900C /* KPObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BF77DD9619A7A7B700E3900C /* KPObject.m */; };
+		BF7CEF9719A7B3AB006C28CB /* KPObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7CEF9619A7B3AB006C28CB /* KPObjectTests.m */; };
+		BF7CEF9919A814DB006C28CB /* KPSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7CEF9819A814DB006C28CB /* KPSDK.m */; };
+		BF7CEF9E19A81657006C28CB /* KPDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7CEF9D19A81657006C28CB /* KPDefines.m */; };
+		BF7CEFA119A81B9D006C28CB /* KPHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7CEFA019A81B9D006C28CB /* KPHTTPClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +60,12 @@
 		BF77DD8B19A7980A00E3900C /* KPSDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KPSDKTests.m; sourceTree = "<group>"; };
 		BF77DD9519A7A7B700E3900C /* KPObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPObject.h; sourceTree = "<group>"; };
 		BF77DD9619A7A7B700E3900C /* KPObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPObject.m; sourceTree = "<group>"; };
+		BF7CEF9619A7B3AB006C28CB /* KPObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPObjectTests.m; sourceTree = "<group>"; };
+		BF7CEF9819A814DB006C28CB /* KPSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPSDK.m; sourceTree = "<group>"; };
+		BF7CEF9C19A81657006C28CB /* KPDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPDefines.h; sourceTree = "<group>"; };
+		BF7CEF9D19A81657006C28CB /* KPDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPDefines.m; sourceTree = "<group>"; };
+		BF7CEF9F19A81B9D006C28CB /* KPHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPHTTPClient.h; sourceTree = "<group>"; };
+		BF7CEFA019A81B9D006C28CB /* KPHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPHTTPClient.m; sourceTree = "<group>"; };
 		C6BE3AFEA8E14D0F99A78F10 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -117,7 +127,12 @@
 		BF77DD7119A7980A00E3900C /* KPSDK */ = {
 			isa = PBXGroup;
 			children = (
+				BF7CEF9C19A81657006C28CB /* KPDefines.h */,
+				BF7CEF9D19A81657006C28CB /* KPDefines.m */,
 				BF77DD7419A7980A00E3900C /* KPSDK.h */,
+				BF7CEF9819A814DB006C28CB /* KPSDK.m */,
+				BF7CEF9F19A81B9D006C28CB /* KPHTTPClient.h */,
+				BF7CEFA019A81B9D006C28CB /* KPHTTPClient.m */,
 				BF77DD9519A7A7B700E3900C /* KPObject.h */,
 				BF77DD9619A7A7B700E3900C /* KPObject.m */,
 				BF77DD7219A7980A00E3900C /* Supporting Files */,
@@ -137,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				BF77DD8B19A7980A00E3900C /* KPSDKTests.m */,
+				BF7CEF9619A7B3AB006C28CB /* KPObjectTests.m */,
 				BF77DD8619A7980A00E3900C /* Supporting Files */,
 			);
 			path = KPSDKTests;
@@ -268,6 +284,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF77DD9719A7A7B700E3900C /* KPObject.m in Sources */,
+				BF7CEF9E19A81657006C28CB /* KPDefines.m in Sources */,
+				BF7CEF9919A814DB006C28CB /* KPSDK.m in Sources */,
+				BF7CEFA119A81B9D006C28CB /* KPHTTPClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF77DD8C19A7980A00E3900C /* KPSDKTests.m in Sources */,
+				BF7CEF9719A7B3AB006C28CB /* KPObjectTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +417,7 @@
 		};
 		BF77DD9319A7980A00E3900C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9047C23353C45D5832DFFE3 /* Pods.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -409,6 +430,11 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_HEADERS_SEARCH_PATHS}",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = "KPSDKTests/KPSDKTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
@@ -417,6 +443,7 @@
 		};
 		BF77DD9419A7980A00E3900C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9047C23353C45D5832DFFE3 /* Pods.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -425,6 +452,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KPSDK/KPSDK-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_HEADERS_SEARCH_PATHS}",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = "KPSDKTests/KPSDKTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;

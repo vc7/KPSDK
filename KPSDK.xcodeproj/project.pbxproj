@@ -32,6 +32,16 @@
 		BFC2951719A8729C007E9BCD /* KPCategoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC2951619A8729C007E9BCD /* KPCategoryTests.m */; };
 		BFC2951A19A88012007E9BCD /* KPArticle.h in Headers */ = {isa = PBXBuildFile; fileRef = BFC2951819A88012007E9BCD /* KPArticle.h */; };
 		BFC2951B19A88012007E9BCD /* KPArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC2951919A88012007E9BCD /* KPArticle.m */; };
+		BFC2951E19A8950F007E9BCD /* KPAlbum.h in Headers */ = {isa = PBXBuildFile; fileRef = BFC2951C19A8950F007E9BCD /* KPAlbum.h */; };
+		BFC2951F19A8950F007E9BCD /* KPAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC2951D19A8950F007E9BCD /* KPAlbum.m */; };
+		BFC2952219A8951B007E9BCD /* KPPhoto.h in Headers */ = {isa = PBXBuildFile; fileRef = BFC2952019A8951B007E9BCD /* KPPhoto.h */; };
+		BFC2952319A8951B007E9BCD /* KPPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC2952119A8951B007E9BCD /* KPPhoto.m */; };
+		BFC2952619A89732007E9BCD /* KPPlaylist.h in Headers */ = {isa = PBXBuildFile; fileRef = BFC2952419A89732007E9BCD /* KPPlaylist.h */; };
+		BFC2952719A89732007E9BCD /* KPPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC2952519A89732007E9BCD /* KPPlaylist.m */; };
+		BFC2952A19A89742007E9BCD /* KPVideo.h in Headers */ = {isa = PBXBuildFile; fileRef = BFC2952819A89742007E9BCD /* KPVideo.h */; };
+		BFC2952B19A89742007E9BCD /* KPVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC2952919A89742007E9BCD /* KPVideo.m */; };
+		BFC2952E19A8B23F007E9BCD /* KPVideoThumbnail.h in Headers */ = {isa = PBXBuildFile; fileRef = BFC2952C19A8B23F007E9BCD /* KPVideoThumbnail.h */; };
+		BFC2952F19A8B23F007E9BCD /* KPVideoThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC2952D19A8B23F007E9BCD /* KPVideoThumbnail.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +95,16 @@
 		BFC2951619A8729C007E9BCD /* KPCategoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPCategoryTests.m; sourceTree = "<group>"; };
 		BFC2951819A88012007E9BCD /* KPArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPArticle.h; sourceTree = "<group>"; };
 		BFC2951919A88012007E9BCD /* KPArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPArticle.m; sourceTree = "<group>"; };
+		BFC2951C19A8950F007E9BCD /* KPAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPAlbum.h; sourceTree = "<group>"; };
+		BFC2951D19A8950F007E9BCD /* KPAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPAlbum.m; sourceTree = "<group>"; };
+		BFC2952019A8951B007E9BCD /* KPPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPPhoto.h; sourceTree = "<group>"; };
+		BFC2952119A8951B007E9BCD /* KPPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPPhoto.m; sourceTree = "<group>"; };
+		BFC2952419A89732007E9BCD /* KPPlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPPlaylist.h; sourceTree = "<group>"; };
+		BFC2952519A89732007E9BCD /* KPPlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPPlaylist.m; sourceTree = "<group>"; };
+		BFC2952819A89742007E9BCD /* KPVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPVideo.h; sourceTree = "<group>"; };
+		BFC2952919A89742007E9BCD /* KPVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPVideo.m; sourceTree = "<group>"; };
+		BFC2952C19A8B23F007E9BCD /* KPVideoThumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPVideoThumbnail.h; sourceTree = "<group>"; };
+		BFC2952D19A8B23F007E9BCD /* KPVideoThumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPVideoThumbnail.m; sourceTree = "<group>"; };
 		C6BE3AFEA8E14D0F99A78F10 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -161,6 +181,16 @@
 				BFC2951119A86CD3007E9BCD /* KPCategory.m */,
 				BFC2951819A88012007E9BCD /* KPArticle.h */,
 				BFC2951919A88012007E9BCD /* KPArticle.m */,
+				BFC2951C19A8950F007E9BCD /* KPAlbum.h */,
+				BFC2951D19A8950F007E9BCD /* KPAlbum.m */,
+				BFC2952019A8951B007E9BCD /* KPPhoto.h */,
+				BFC2952119A8951B007E9BCD /* KPPhoto.m */,
+				BFC2952419A89732007E9BCD /* KPPlaylist.h */,
+				BFC2952519A89732007E9BCD /* KPPlaylist.m */,
+				BFC2952819A89742007E9BCD /* KPVideo.h */,
+				BFC2952919A89742007E9BCD /* KPVideo.m */,
+				BFC2952C19A8B23F007E9BCD /* KPVideoThumbnail.h */,
+				BFC2952D19A8B23F007E9BCD /* KPVideoThumbnail.m */,
 				BF77DD7219A7980A00E3900C /* Supporting Files */,
 			);
 			path = KPSDK;
@@ -203,8 +233,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFC2950C19A850B3007E9BCD /* KPDefines.h in Headers */,
+				BFC2952619A89732007E9BCD /* KPPlaylist.h in Headers */,
+				BFC2951E19A8950F007E9BCD /* KPAlbum.h in Headers */,
 				BFC2950D19A850B3007E9BCD /* KPSDK.h in Headers */,
 				BFC2950E19A850B3007E9BCD /* KPHTTPClient.h in Headers */,
+				BFC2952A19A89742007E9BCD /* KPVideo.h in Headers */,
+				BFC2952E19A8B23F007E9BCD /* KPVideoThumbnail.h in Headers */,
+				BFC2952219A8951B007E9BCD /* KPPhoto.h in Headers */,
 				BFC2950F19A850B3007E9BCD /* KPObject.h in Headers */,
 				BFC2951A19A88012007E9BCD /* KPArticle.h in Headers */,
 				BFC2951219A86CD3007E9BCD /* KPCategory.h in Headers */,
@@ -360,10 +395,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFC2952B19A89742007E9BCD /* KPVideo.m in Sources */,
 				BF77DD9719A7A7B700E3900C /* KPObject.m in Sources */,
+				BFC2952319A8951B007E9BCD /* KPPhoto.m in Sources */,
+				BFC2952719A89732007E9BCD /* KPPlaylist.m in Sources */,
+				BFC2952F19A8B23F007E9BCD /* KPVideoThumbnail.m in Sources */,
 				BFC2951B19A88012007E9BCD /* KPArticle.m in Sources */,
 				BF7CEF9E19A81657006C28CB /* KPDefines.m in Sources */,
 				BF7CEF9919A814DB006C28CB /* KPSDK.m in Sources */,
+				BFC2951F19A8950F007E9BCD /* KPAlbum.m in Sources */,
 				BF7CEFA119A81B9D006C28CB /* KPHTTPClient.m in Sources */,
 				BFC2951319A86CD3007E9BCD /* KPCategory.m in Sources */,
 			);

@@ -3,10 +3,11 @@
 //  KPSDKTests
 //
 //  Created by vincent on 2014/08/22.
-//  Copyright (c) 2014年 Vincent Chen. All rights reserved.
+//  Copyright (c) 2014 Vincent Chen. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
+#import "KPSDK.h"
 
 @interface KPSDKTests : XCTestCase
 
@@ -26,9 +27,11 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testInitWithAPIKey
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    [KPSDK setAPIKey:@"testAPIKey"];
+    
+    XCTAssertEqualObjects([KPSDK getAPIKey], @"testAPIKey");
 }
 
 @end

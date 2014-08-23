@@ -9,9 +9,20 @@
 #import "KPHTTPClient.h"
 #import "KPDefines.h"
 
+NSString * const kKPRequestParameterAccessToken = @"accessToken";
+
+@interface KPHTTPClient ()
+
+@property (nonatomic, strong) NSDictionary *baseParameter;
+
+@end
+
 @implementation KPHTTPClient {
     NSString *apiKey;
+    NSDictionary *baseParameter;
 }
+
+@synthesize baseParameter;
 
 #pragma mark - Client Lifecycle
 
@@ -32,9 +43,14 @@
     return kKPAPIVersion;
 }
 
-- (void)setAPIKey:(NSString *)theAPIKey
+- (void)setAPIKey:(NSString *)newAPIKey
 {
-    apiKey = theAPIKey;
+    if ( ! [apiKey isEqualToString:newAPIKey]) {
+        
+        apiKey = newAPIKey;
+        
+        baseParameter = @{ kKPRequestParameterAccessToken:apiKey };
+    }
 }
 
 - (NSString *)getAPIKey
@@ -47,7 +63,6 @@
     NSURL *baseURL = nil;
     NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSString *version = [[self class] apiVersion];
-    
     
     baseURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/%@/", kKPAPIScheme, kKPAPIHost, version]];
     

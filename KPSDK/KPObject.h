@@ -15,11 +15,18 @@
 /*!
  The class name of the object.
  */
-@property (readonly) NSString *kpClassName;
++ (NSString *)kpClassName;
 
 /*!
  The id of the object.
  */
 @property (nonatomic, strong) NSString *objectId;
+
+/*!
+ Unpack the given dictionary and return as related object
+ 
+ @param dictionary The given data dictionary
+ */
++ (id)objectWithDictionary:(NSDictionary *)dictionary;
 
 @end

@@ -20,10 +20,25 @@
 {
     self = [super init];
     if (self) {
-        self.kpClassName = @"Object";
         self.objectId = nil;
     }
     return self;
+}
+
++ (NSString *)kpClassName
+{
+    return @"Object";
+}
+
++ (id)objectWithDictionary:(NSDictionary *)dictionary
+{
+    if ( ! dictionary) {
+        return nil;
+    }
+    
+    KPObject *object = [KPObject new];
+    
+    return object;
 }
 
 @end

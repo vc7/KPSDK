@@ -17,8 +17,6 @@
 
 @implementation KPArticle
 
-@synthesize objectId;
-
 + (NSString *)kpClassName
 {
     return @"Article";
@@ -42,6 +40,7 @@
     article.author = dictionary[@"author"];
     article.content = dictionary[@"content"];
     article.plainContent = dictionary[@"plain_content"];
+    article.originURL = [NSString stringWithFormat:@"http://kptaipei.tw/?page_id=%@", article.objectId];
     
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     
@@ -52,14 +51,6 @@
     article.updatedAt = [dateFormatter dateFromString:dictionary[@"last_modify"]];
     
     return article;
-}
-
-#pragma mark - Accessor
-
-- (void)setObjectId:(NSString *)objectId
-{
-    [super setObjectId:objectId];
-    self.originURL = [NSString stringWithFormat:@"http://kptaipei.tw/?page_id=%@", objectId];
 }
 
 @end

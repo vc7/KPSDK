@@ -15,6 +15,8 @@
 #import "KPPhoto.h"
 #import "KPPlaylist.h"
 #import "KPVideo.h"
+#import "KPMusicPlaylist.h"
+#import "KPMusic.h"
 
 NSString * const kKPRequestParameterAccessToken = @"accessToken";
 NSString * const kKPRequestParameterPage = @"page";
@@ -23,6 +25,7 @@ NSString * const kKPRequestParameterPageSize = @"page_size";
 NSString * const kKPRequestPathCategory = @"category";
 NSString * const kKPRequestPathAlbums = @"albums";
 NSString * const kKPRequestPathVideos = @"videos";
+NSString * const kKPRequestPathMusics = @"musics";
 
 NSInteger const kKPPageDefault = 0;
 NSInteger const kKPPageSizeDefault = 100;
@@ -356,7 +359,7 @@ NSInteger const kKPPageSizeMax = 500;
     [self getPlaylistsWithPage:kKPPageDefault pageSize:kKPPageSizeDefault success:success failure:failure];
 }
 
-#pragma mark - video List
+#pragma mark - Video List
 
 - (void)getVideosByPlaylistId:(NSString *)objectId page:(NSInteger)page pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
 {
@@ -418,7 +421,40 @@ NSInteger const kKPPageSizeMax = 500;
 
 - (void)getMusicPlaylistsWithPage:(NSInteger)page pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
 {
-#warning not implement yet
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    
+    if (page > kKPPageDefault) {
+        [parameters setObject:@(page) forKey:kKPRequestParameterPage];
+    }
+    
+    if (pageSize > 0 && pageSize <= kKPPageSizeMax) {
+        [parameters setObject:@(pageSize) forKey:kKPRequestParameterPage];
+    } else if (pageSize <= 0) {
+        [parameters setObject:@(kKPPageSizeDefault) forKey:kKPRequestParameterPage];
+    } else {
+        [parameters setObject:@(kKPPageSizeMax) forKey:kKPRequestParameterPage];
+    }
+    
+    [self GET:kKPRequestPathMusics parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        if (responseObject) {
+            
+            NSArray *data = responseObject[@"data"];
+            __block NSMutableArray *playlistsArray = [NSMutableArray array];
+            
+            [data enumerateObjectsUsingBlock:^(NSDictionary *dataDictionary, NSUInteger idx, BOOL *stop) {
+                KPMusicPlaylist *playlist = [KPMusicPlaylist objectWithDictionary:dataDictionary];
+                
+                [playlistsArray addObject:playlist];
+                
+            }];
+            
+            success(task, playlistsArray);
+        }
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, error);
+    }];
 }
 - (void)getMusicPlaylistsWithPage:(NSInteger)page success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
 {
@@ -437,7 +473,47 @@ NSInteger const kKPPageSizeMax = 500;
 
 - (void)getMusicsByPlaylistId:(NSString *)objectId page:(NSInteger)page pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
 {
-#warning not implement yet
+    
+    if ( ! objectId) {
+        @throw([NSException exceptionWithName:@"kKPRequestPlaylistIdNotSetException" reason:@"Playlist id should be set for this request." userInfo:nil]);
+    }
+    
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    
+    if (page > 0) {
+        [parameters setObject:@(page) forKey:kKPRequestParameterPage];
+    }
+    
+    if (pageSize > 0 && pageSize <= kKPPageSizeMax) {
+        [parameters setObject:@(pageSize) forKey:kKPRequestParameterPage];
+    } else if (pageSize <= 0) {
+        [parameters setObject:@(kKPPageSizeDefault) forKey:kKPRequestParameterPage];
+    } else {
+        [parameters setObject:@(kKPPageSizeMax) forKey:kKPRequestParameterPage];
+    }
+    
+    NSString *path = [NSString stringWithFormat:@"%@/%@", kKPRequestPathMusics, objectId];
+    
+    [self GET:path parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        if (responseObject) {
+            
+            NSArray *data = responseObject[@"data"];
+            __block NSMutableArray *musicArray = [NSMutableArray array];
+            
+            [data enumerateObjectsUsingBlock:^(NSDictionary *dataDictionary, NSUInteger idx, BOOL *stop) {
+                KPMusic *music = [KPMusic objectWithDictionary:dataDictionary];
+                
+                [musicArray addObject:music];
+                
+            }];
+            
+            success(task, musicArray);
+        }
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, error);
+    }];
 }
 - (void)getMusicsByPlaylistId:(NSString *)objectId page:(NSInteger)page success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
 {

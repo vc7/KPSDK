@@ -46,6 +46,8 @@
 		BFC2953319A9A797007E9BCD /* KPMusicPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC2953119A9A797007E9BCD /* KPMusicPlaylist.m */; };
 		BFC2953619A9A7AA007E9BCD /* KPMusic.h in Headers */ = {isa = PBXBuildFile; fileRef = BFC2953419A9A7AA007E9BCD /* KPMusic.h */; };
 		BFC2953719A9A7AA007E9BCD /* KPMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC2953519A9A7AA007E9BCD /* KPMusic.m */; };
+		BFC2953819A9AA05007E9BCD /* KPMusicPlaylist.h in Sources */ = {isa = PBXBuildFile; fileRef = BFC2953019A9A797007E9BCD /* KPMusicPlaylist.h */; };
+		BFC2953919A9AA05007E9BCD /* KPMusic.h in Sources */ = {isa = PBXBuildFile; fileRef = BFC2953419A9A7AA007E9BCD /* KPMusic.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -409,6 +411,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFC2953819A9AA05007E9BCD /* KPMusicPlaylist.h in Sources */,
+				BFC2953919A9AA05007E9BCD /* KPMusic.h in Sources */,
 				BFC2952B19A89742007E9BCD /* KPVideo.m in Sources */,
 				BF77DD9719A7A7B700E3900C /* KPObject.m in Sources */,
 				BFC2952319A8951B007E9BCD /* KPPhoto.m in Sources */,

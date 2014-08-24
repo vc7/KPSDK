@@ -14,6 +14,14 @@
 
 #import "KPObject.h"
 #import "KPCategory.h"
+#import "KPArticle.h"
+#import "KPAlbum.h"
+#import "KPPhoto.h"
+#import "KPPlaylist.h"
+#import "KPVideo.h"
+#import "KPVideoThumbnail.h"
+#import "KPMusicPlaylist.h"
+#import "KPMusic.h"
 
 @interface KPSDK : NSObject
 

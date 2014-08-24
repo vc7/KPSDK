@@ -153,11 +153,11 @@ NSInteger const kKPPageSizeMax = 500;
     }
     
     if (pageSize > 0 && pageSize <= kKPPageSizeMax) {
-        [parameters setObject:@(pageSize) forKey:kKPRequestParameterPage];
+        [parameters setObject:@(pageSize) forKey:kKPRequestParameterPageSize];
     } else if (pageSize <= 0) {
-        [parameters setObject:@(kKPPageSizeDefault) forKey:kKPRequestParameterPage];
+        [parameters setObject:@(kKPPageSizeDefault) forKey:kKPRequestParameterPageSize];
     } else {
-        [parameters setObject:@(kKPPageSizeMax) forKey:kKPRequestParameterPage];
+        [parameters setObject:@(kKPPageSizeMax) forKey:kKPRequestParameterPageSize];
     }
     
     NSString *path = [NSString stringWithFormat:@"%@/%@", kKPRequestPathCategory, objectId];
@@ -208,11 +208,11 @@ NSInteger const kKPPageSizeMax = 500;
     }
     
     if (pageSize > 0 && pageSize <= kKPPageSizeMax) {
-        [parameters setObject:@(pageSize) forKey:kKPRequestParameterPage];
+        [parameters setObject:@(pageSize) forKey:kKPRequestParameterPageSize];
     } else if (pageSize <= 0) {
-        [parameters setObject:@(kKPPageSizeDefault) forKey:kKPRequestParameterPage];
+        [parameters setObject:@(kKPPageSizeDefault) forKey:kKPRequestParameterPageSize];
     } else {
-        [parameters setObject:@(kKPPageSizeMax) forKey:kKPRequestParameterPage];
+        [parameters setObject:@(kKPPageSizeMax) forKey:kKPRequestParameterPageSize];
     }
     
     [self GET:kKPRequestPathAlbums parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -264,11 +264,11 @@ NSInteger const kKPPageSizeMax = 500;
     }
     
     if (pageSize > 0 && pageSize <= kKPPageSizeMax) {
-        [parameters setObject:@(pageSize) forKey:kKPRequestParameterPage];
+        [parameters setObject:@(pageSize) forKey:kKPRequestParameterPageSize];
     } else if (pageSize <= 0) {
-        [parameters setObject:@(kKPPageSizeDefault) forKey:kKPRequestParameterPage];
+        [parameters setObject:@(kKPPageSizeDefault) forKey:kKPRequestParameterPageSize];
     } else {
-        [parameters setObject:@(kKPPageSizeMax) forKey:kKPRequestParameterPage];
+        [parameters setObject:@(kKPPageSizeMax) forKey:kKPRequestParameterPageSize];
     }
     
     NSString *path = [NSString stringWithFormat:@"%@/%@", kKPRequestPathAlbums, objectId];
@@ -318,11 +318,11 @@ NSInteger const kKPPageSizeMax = 500;
     }
     
     if (pageSize > 0 && pageSize <= kKPPageSizeMax) {
-        [parameters setObject:@(pageSize) forKey:kKPRequestParameterPage];
+        [parameters setObject:@(pageSize) forKey:kKPRequestParameterPageSize];
     } else if (pageSize <= 0) {
-        [parameters setObject:@(kKPPageSizeDefault) forKey:kKPRequestParameterPage];
+        [parameters setObject:@(kKPPageSizeDefault) forKey:kKPRequestParameterPageSize];
     } else {
-        [parameters setObject:@(kKPPageSizeMax) forKey:kKPRequestParameterPage];
+        [parameters setObject:@(kKPPageSizeMax) forKey:kKPRequestParameterPageSize];
     }
     
     [self GET:kKPRequestPathVideos parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -374,11 +374,11 @@ NSInteger const kKPPageSizeMax = 500;
     }
     
     if (pageSize > 0 && pageSize <= kKPPageSizeMax) {
-        [parameters setObject:@(pageSize) forKey:kKPRequestParameterPage];
+        [parameters setObject:@(pageSize) forKey:kKPRequestParameterPageSize];
     } else if (pageSize <= 0) {
-        [parameters setObject:@(kKPPageSizeDefault) forKey:kKPRequestParameterPage];
+        [parameters setObject:@(kKPPageSizeDefault) forKey:kKPRequestParameterPageSize];
     } else {
-        [parameters setObject:@(kKPPageSizeMax) forKey:kKPRequestParameterPage];
+        [parameters setObject:@(kKPPageSizeMax) forKey:kKPRequestParameterPageSize];
     }
     
     NSString *path = [NSString stringWithFormat:@"%@/%@", kKPRequestPathVideos, objectId];
@@ -428,11 +428,11 @@ NSInteger const kKPPageSizeMax = 500;
     }
     
     if (pageSize > 0 && pageSize <= kKPPageSizeMax) {
-        [parameters setObject:@(pageSize) forKey:kKPRequestParameterPage];
+        [parameters setObject:@(pageSize) forKey:kKPRequestParameterPageSize];
     } else if (pageSize <= 0) {
-        [parameters setObject:@(kKPPageSizeDefault) forKey:kKPRequestParameterPage];
+        [parameters setObject:@(kKPPageSizeDefault) forKey:kKPRequestParameterPageSize];
     } else {
-        [parameters setObject:@(kKPPageSizeMax) forKey:kKPRequestParameterPage];
+        [parameters setObject:@(kKPPageSizeMax) forKey:kKPRequestParameterPageSize];
     }
     
     [self GET:kKPRequestPathMusics parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -485,11 +485,11 @@ NSInteger const kKPPageSizeMax = 500;
     }
     
     if (pageSize > 0 && pageSize <= kKPPageSizeMax) {
-        [parameters setObject:@(pageSize) forKey:kKPRequestParameterPage];
+        [parameters setObject:@(pageSize) forKey:kKPRequestParameterPageSize];
     } else if (pageSize <= 0) {
-        [parameters setObject:@(kKPPageSizeDefault) forKey:kKPRequestParameterPage];
+        [parameters setObject:@(kKPPageSizeDefault) forKey:kKPRequestParameterPageSize];
     } else {
-        [parameters setObject:@(kKPPageSizeMax) forKey:kKPRequestParameterPage];
+        [parameters setObject:@(kKPPageSizeMax) forKey:kKPRequestParameterPageSize];
     }
     
     NSString *path = [NSString stringWithFormat:@"%@/%@", kKPRequestPathMusics, objectId];

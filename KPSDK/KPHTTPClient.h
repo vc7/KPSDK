@@ -8,17 +8,23 @@
 
 #import "AFNetworking.h"
 
-typedef void (^KPHTTPClientSuccess)(NSURLSessionDataTask *task, id responseObject);
-typedef void (^KPHTTPClientFailure)(NSURLSessionDataTask *task, NSError *error);
+typedef void (^KPHTTPClientSuccess)(NSURLSessionDataTask *task, id responseObject); //! @typedef KPHTTPClientSuccess the success callback
+typedef void (^KPHTTPClientFailure)(NSURLSessionDataTask *task, NSError *error);    //! @typedef KPHTTPClientFailure the falure callback
 
 @interface KPHTTPClient : AFHTTPSessionManager
 
 #pragma mark - Client Lifecycle
 
+/*! Use client as singleton */
 + (KPHTTPClient *)sharedClient;
+/*! Access official api version */
 + (NSString *)apiVersion;
 
+/*! Set the api key in order to send request
+ @param apiKey send a string as apiKey
+ */
 - (void)setAPIKey:(NSString *)apiKey;
+/*! Get current using api key */
 - (NSString *)getAPIKey;
 
 #pragma mark - Category

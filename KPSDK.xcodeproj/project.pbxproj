@@ -42,6 +42,10 @@
 		BFC2952B19A89742007E9BCD /* KPVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC2952919A89742007E9BCD /* KPVideo.m */; };
 		BFC2952E19A8B23F007E9BCD /* KPVideoThumbnail.h in Headers */ = {isa = PBXBuildFile; fileRef = BFC2952C19A8B23F007E9BCD /* KPVideoThumbnail.h */; };
 		BFC2952F19A8B23F007E9BCD /* KPVideoThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC2952D19A8B23F007E9BCD /* KPVideoThumbnail.m */; };
+		BFC2953219A9A797007E9BCD /* KPMusicPlaylist.h in Headers */ = {isa = PBXBuildFile; fileRef = BFC2953019A9A797007E9BCD /* KPMusicPlaylist.h */; };
+		BFC2953319A9A797007E9BCD /* KPMusicPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC2953119A9A797007E9BCD /* KPMusicPlaylist.m */; };
+		BFC2953619A9A7AA007E9BCD /* KPMusic.h in Headers */ = {isa = PBXBuildFile; fileRef = BFC2953419A9A7AA007E9BCD /* KPMusic.h */; };
+		BFC2953719A9A7AA007E9BCD /* KPMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC2953519A9A7AA007E9BCD /* KPMusic.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +109,10 @@
 		BFC2952919A89742007E9BCD /* KPVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPVideo.m; sourceTree = "<group>"; };
 		BFC2952C19A8B23F007E9BCD /* KPVideoThumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPVideoThumbnail.h; sourceTree = "<group>"; };
 		BFC2952D19A8B23F007E9BCD /* KPVideoThumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPVideoThumbnail.m; sourceTree = "<group>"; };
+		BFC2953019A9A797007E9BCD /* KPMusicPlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPMusicPlaylist.h; sourceTree = "<group>"; };
+		BFC2953119A9A797007E9BCD /* KPMusicPlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPMusicPlaylist.m; sourceTree = "<group>"; };
+		BFC2953419A9A7AA007E9BCD /* KPMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPMusic.h; sourceTree = "<group>"; };
+		BFC2953519A9A7AA007E9BCD /* KPMusic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPMusic.m; sourceTree = "<group>"; };
 		C6BE3AFEA8E14D0F99A78F10 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -191,6 +199,10 @@
 				BFC2952919A89742007E9BCD /* KPVideo.m */,
 				BFC2952C19A8B23F007E9BCD /* KPVideoThumbnail.h */,
 				BFC2952D19A8B23F007E9BCD /* KPVideoThumbnail.m */,
+				BFC2953019A9A797007E9BCD /* KPMusicPlaylist.h */,
+				BFC2953119A9A797007E9BCD /* KPMusicPlaylist.m */,
+				BFC2953419A9A7AA007E9BCD /* KPMusic.h */,
+				BFC2953519A9A7AA007E9BCD /* KPMusic.m */,
 				BF77DD7219A7980A00E3900C /* Supporting Files */,
 			);
 			path = KPSDK;
@@ -233,8 +245,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFC2950C19A850B3007E9BCD /* KPDefines.h in Headers */,
+				BFC2953219A9A797007E9BCD /* KPMusicPlaylist.h in Headers */,
 				BFC2952619A89732007E9BCD /* KPPlaylist.h in Headers */,
 				BFC2951E19A8950F007E9BCD /* KPAlbum.h in Headers */,
+				BFC2953619A9A7AA007E9BCD /* KPMusic.h in Headers */,
 				BFC2950D19A850B3007E9BCD /* KPSDK.h in Headers */,
 				BFC2950E19A850B3007E9BCD /* KPHTTPClient.h in Headers */,
 				BFC2952A19A89742007E9BCD /* KPVideo.h in Headers */,
@@ -403,8 +417,10 @@
 				BFC2951B19A88012007E9BCD /* KPArticle.m in Sources */,
 				BF7CEF9E19A81657006C28CB /* KPDefines.m in Sources */,
 				BF7CEF9919A814DB006C28CB /* KPSDK.m in Sources */,
+				BFC2953719A9A7AA007E9BCD /* KPMusic.m in Sources */,
 				BFC2951F19A8950F007E9BCD /* KPAlbum.m in Sources */,
 				BF7CEFA119A81B9D006C28CB /* KPHTTPClient.m in Sources */,
+				BFC2953319A9A797007E9BCD /* KPMusicPlaylist.m in Sources */,
 				BFC2951319A86CD3007E9BCD /* KPCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

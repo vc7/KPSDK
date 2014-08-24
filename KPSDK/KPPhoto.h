@@ -12,7 +12,7 @@
 
 @interface KPPhoto : KPObject
 
-@property (nonatomic, strong) KPAlbum *album;
+// @property (nonatomic, strong) KPAlbum *album;
 
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *originURL;

@@ -11,6 +11,10 @@
 
 #import "KPCategory.h"
 #import "KPArticle.h"
+#import "KPAlbum.h"
+#import "KPPhoto.h"
+#import "KPPlaylist.h"
+#import "KPVideo.h"
 
 NSString * const kKPRequestParameterAccessToken = @"accessToken";
 NSString * const kKPRequestParameterPage = @"page";
@@ -19,6 +23,10 @@ NSString * const kKPRequestParameterPageSize = @"page_size";
 NSString * const kKPRequestPathCategory = @"category";
 NSString * const kKPRequestPathAlbums = @"albums";
 NSString * const kKPRequestPathVideos = @"videos";
+
+NSInteger const kKPPageDefault = 0;
+NSInteger const kKPPageSizeDefault = 100;
+NSInteger const kKPPageSizeMax = 500;
 
 @interface KPHTTPClient ()
 
@@ -132,7 +140,7 @@ NSString * const kKPRequestPathVideos = @"videos";
 - (void)getArticlesByCategoryId:(NSString *)objectId page:(NSInteger)page pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
 {
     if ( ! objectId) {
-        @throw([NSException exceptionWithName:@"kKPRequestCategoryIdNotSetException" reason:@"category id shoud be set for this request." userInfo:nil]);
+        @throw([NSException exceptionWithName:@"kKPRequestCategoryIdNotSetException" reason:@"Category id should be set for this request." userInfo:nil]);
     }
     
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
@@ -141,17 +149,17 @@ NSString * const kKPRequestPathVideos = @"videos";
         [parameters setObject:@(page) forKey:kKPRequestParameterPage];
     }
     
-    if (pageSize > 0 && pageSize <= 500) {
+    if (pageSize > 0 && pageSize <= kKPPageSizeMax) {
         [parameters setObject:@(pageSize) forKey:kKPRequestParameterPage];
     } else if (pageSize <= 0) {
-        [parameters setObject:@(100) forKey:kKPRequestParameterPage];
+        [parameters setObject:@(kKPPageSizeDefault) forKey:kKPRequestParameterPage];
     } else {
-        [parameters setObject:@(500) forKey:kKPRequestParameterPage];
+        [parameters setObject:@(kKPPageSizeMax) forKey:kKPRequestParameterPage];
     }
     
     NSString *path = [NSString stringWithFormat:@"%@/%@", kKPRequestPathCategory, objectId];
     
-    [self GET:path parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [self GET:path parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         
         if (responseObject) {
             
@@ -174,14 +182,274 @@ NSString * const kKPRequestPathVideos = @"videos";
 }
 - (void)getArticlesByCategoryId:(NSString *)objectId page:(NSInteger)page success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
 {
-    [self getArticlesByCategoryId:objectId page:page pageSize:100 success:success failure:failure];
+    [self getArticlesByCategoryId:objectId page:page pageSize:kKPPageSizeDefault success:success failure:failure];
 }
 - (void)getArticlesByCategoryId:(NSString *)objectId pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
 {
-    [self getArticlesByCategoryId:objectId page:0 pageSize:pageSize success:success failure:failure];
+    [self getArticlesByCategoryId:objectId page:kKPPageDefault pageSize:pageSize success:success failure:failure];
 }
 - (void)getArticlesByCategoryId:(NSString *)objectId success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
 {
-    [self getArticlesByCategoryId:objectId page:0 pageSize:100 success:success failure:failure];
+    [self getArticlesByCategoryId:objectId page:kKPPageDefault pageSize:kKPPageSizeDefault success:success failure:failure];
 }
+
+
+#pragma mark - Album
+
+- (void)getAlbumsWithPage:(NSInteger)page pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    
+    if (page > kKPPageDefault) {
+        [parameters setObject:@(page) forKey:kKPRequestParameterPage];
+    }
+    
+    if (pageSize > 0 && pageSize <= kKPPageSizeMax) {
+        [parameters setObject:@(pageSize) forKey:kKPRequestParameterPage];
+    } else if (pageSize <= 0) {
+        [parameters setObject:@(kKPPageSizeDefault) forKey:kKPRequestParameterPage];
+    } else {
+        [parameters setObject:@(kKPPageSizeMax) forKey:kKPRequestParameterPage];
+    }
+    
+    [self GET:kKPRequestPathAlbums parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        if (responseObject) {
+            
+            NSArray *data = responseObject[@"data"];
+            __block NSMutableArray *albumsArray = [NSMutableArray array];
+            
+            [data enumerateObjectsUsingBlock:^(NSDictionary *dataDictionary, NSUInteger idx, BOOL *stop) {
+                KPAlbum *album = [KPAlbum objectWithDictionary:dataDictionary];
+                
+                [albumsArray addObject:album];
+                
+            }];
+            
+            success(task, albumsArray);
+        }
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, error);
+    }];
+}
+- (void)getAlbumsWithPage:(NSInteger)page success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+    [self getAlbumsWithPage:page pageSize:kKPPageSizeDefault success:success failure:failure];
+}
+- (void)getAlbumsWithPageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+    [self getAlbumsWithPage:kKPPageDefault pageSize:pageSize success:success failure:failure];
+}
+- (void)getAlbumsWithSuccess:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+    [self getAlbumsWithPage:kKPPageDefault pageSize:kKPPageSizeDefault success:success failure:failure];
+}
+
+#pragma mark - Photo List
+
+- (void)getPhotosByAlbumId:(NSString *)objectId page:(NSInteger)page pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+    if ( ! objectId) {
+        @throw([NSException exceptionWithName:@"kKPRequestAlbumIdNotSetException" reason:@"Album id should be set for this request." userInfo:nil]);
+    }
+    
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    
+    if (page > kKPPageDefault) {
+        [parameters setObject:@(page) forKey:kKPRequestParameterPage];
+    }
+    
+    if (pageSize > 0 && pageSize <= kKPPageSizeMax) {
+        [parameters setObject:@(pageSize) forKey:kKPRequestParameterPage];
+    } else if (pageSize <= 0) {
+        [parameters setObject:@(kKPPageSizeDefault) forKey:kKPRequestParameterPage];
+    } else {
+        [parameters setObject:@(kKPPageSizeMax) forKey:kKPRequestParameterPage];
+    }
+    
+    NSString *path = [NSString stringWithFormat:@"%@/%@", kKPRequestPathAlbums, objectId];
+    
+    [self GET:path parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        if (responseObject) {
+            
+            NSArray *data = responseObject[@"data"];
+            __block NSMutableArray *photosArray = [NSMutableArray array];
+            
+            [data enumerateObjectsUsingBlock:^(NSDictionary *dataDictionary, NSUInteger idx, BOOL *stop) {
+                KPPhoto *photo = [KPPhoto objectWithDictionary:dataDictionary];
+                
+                [photosArray addObject:photo];
+                
+            }];
+            
+            success(task, photosArray);
+        }
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, error);
+    }];
+}
+- (void)getPhotosByAlbumId:(NSString *)objectId page:(NSInteger)page success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+    [self getPhotosByAlbumId:objectId page:page pageSize:kKPPageSizeDefault success:success failure:failure];
+}
+- (void)getPhotosByAlbumId:(NSString *)objectId pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+    [self getPhotosByAlbumId:objectId page:kKPPageDefault pageSize:pageSize success:success failure:failure];
+}
+- (void)getPhotosByAlbumId:(NSString *)objectId success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+    [self getPhotosByAlbumId:objectId page:kKPPageDefault pageSize:kKPPageSizeDefault success:success failure:failure];
+}
+
+#pragma mark - Playlist
+
+- (void)getPlaylistsWithPage:(NSInteger)page pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    
+    if (page > kKPPageDefault) {
+        [parameters setObject:@(page) forKey:kKPRequestParameterPage];
+    }
+    
+    if (pageSize > 0 && pageSize <= kKPPageSizeMax) {
+        [parameters setObject:@(pageSize) forKey:kKPRequestParameterPage];
+    } else if (pageSize <= 0) {
+        [parameters setObject:@(kKPPageSizeDefault) forKey:kKPRequestParameterPage];
+    } else {
+        [parameters setObject:@(kKPPageSizeMax) forKey:kKPRequestParameterPage];
+    }
+    
+    [self GET:kKPRequestPathVideos parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        if (responseObject) {
+            
+            NSArray *data = responseObject[@"data"];
+            __block NSMutableArray *playlistsArray = [NSMutableArray array];
+            
+            [data enumerateObjectsUsingBlock:^(NSDictionary *dataDictionary, NSUInteger idx, BOOL *stop) {
+                KPPlaylist *playlist = [KPPlaylist objectWithDictionary:dataDictionary];
+                
+                [playlistsArray addObject:playlist];
+                
+            }];
+            
+            success(task, playlistsArray);
+        }
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, error);
+    }];
+}
+- (void)getPlaylistsWithPage:(NSInteger)page success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+    [self getPlaylistsWithPage:page pageSize:kKPPageSizeDefault success:success failure:failure];
+}
+- (void)getPlaylistsWithPageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+    [self getPlaylistsWithPage:kKPPageDefault pageSize:pageSize success:success failure:failure];
+}
+- (void)getPlaylistsWithSuccess:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+    [self getPlaylistsWithPage:kKPPageDefault pageSize:kKPPageSizeDefault success:success failure:failure];
+}
+
+#pragma mark - video List
+
+- (void)getVideosByPlaylistId:(NSString *)objectId page:(NSInteger)page pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+    if ( ! objectId) {
+        @throw([NSException exceptionWithName:@"kKPRequestPlaylistIdNotSetException" reason:@"Playlist id should be set for this request." userInfo:nil]);
+    }
+    
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    
+    if (page > 0) {
+        [parameters setObject:@(page) forKey:kKPRequestParameterPage];
+    }
+    
+    if (pageSize > 0 && pageSize <= kKPPageSizeMax) {
+        [parameters setObject:@(pageSize) forKey:kKPRequestParameterPage];
+    } else if (pageSize <= 0) {
+        [parameters setObject:@(kKPPageSizeDefault) forKey:kKPRequestParameterPage];
+    } else {
+        [parameters setObject:@(kKPPageSizeMax) forKey:kKPRequestParameterPage];
+    }
+    
+    NSString *path = [NSString stringWithFormat:@"%@/%@", kKPRequestPathVideos, objectId];
+    
+    [self GET:path parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        if (responseObject) {
+            
+            NSArray *data = responseObject[@"data"];
+            __block NSMutableArray *videosArray = [NSMutableArray array];
+            
+            [data enumerateObjectsUsingBlock:^(NSDictionary *dataDictionary, NSUInteger idx, BOOL *stop) {
+                KPVideo *video = [KPVideo objectWithDictionary:dataDictionary];
+                
+                [videosArray addObject:video];
+                
+            }];
+            
+            success(task, videosArray);
+        }
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, error);
+    }];
+}
+- (void)getVideosByPlaylistId:(NSString *)objectId page:(NSInteger)page success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+    [self getVideosByPlaylistId:objectId page:page pageSize:kKPPageSizeDefault success:success failure:failure];
+}
+- (void)getVideosByPlaylistId:(NSString *)objectId pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+    [self getVideosByPlaylistId:objectId page:kKPPageDefault pageSize:pageSize success:success failure:failure];
+}
+- (void)getVideosByPlaylistId:(NSString *)objectId success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+    [self getVideosByPlaylistId:objectId page:kKPPageDefault pageSize:kKPPageSizeDefault success:success failure:failure];
+}
+
+#pragma mark - Music Playlist
+
+- (void)getMusicPlaylistsWithPage:(NSInteger)page pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+#warning not implement yet
+}
+- (void)getMusicPlaylistsWithPage:(NSInteger)page success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+    [self getMusicPlaylistsWithPage:page pageSize:kKPPageSizeDefault success:success failure:failure];
+}
+- (void)getMusicPlaylistsWithPageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+    [self getMusicPlaylistsWithPage:kKPPageDefault pageSize:pageSize success:success failure:failure];
+}
+- (void)getMusicPlaylistsWithSuccess:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+    [self getMusicPlaylistsWithPage:kKPPageDefault pageSize:kKPPageSizeDefault success:success failure:failure];
+}
+
+#pragma mark - Music List
+
+- (void)getMusicsByPlaylistId:(NSString *)objectId page:(NSInteger)page pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+#warning not implement yet
+}
+- (void)getMusicsByPlaylistId:(NSString *)objectId page:(NSInteger)page success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+    [self getMusicsByPlaylistId:objectId page:page pageSize:kKPPageSizeDefault success:success failure:failure];
+}
+- (void)getMusicsByPlaylistId:(NSString *)objectId pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+    [self getMusicsByPlaylistId:objectId page:kKPPageDefault pageSize:pageSize success:success failure:failure];
+}
+- (void)getMusicsByPlaylistId:(NSString *)objectId success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure
+{
+    [self getMusicsByPlaylistId:objectId page:kKPPageDefault pageSize:kKPPageSizeDefault success:success failure:failure];
+}
+
 @end

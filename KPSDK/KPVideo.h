@@ -8,7 +8,11 @@
 
 #import "KPObject.h"
 
+@class KPPlaylist;
+
 @interface KPVideo : KPObject
+
+@property (nonatomic, strong) KPPlaylist *playlist;
 
 @property (nonatomic, strong) NSString *sysId;
 @property (nonatomic, strong) NSString *title;

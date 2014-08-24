@@ -12,11 +12,11 @@
 
 @interface KPArticle : KPObject
 
+@property (nonatomic, strong) KPCategory *category;
+
 // original format is UTC: "2014-08-19T01:40:22.000Z"
 @property (nonatomic, strong) NSDate *createdAt;
 @property (nonatomic, strong) NSDate *updatedAt;
-
-@property (nonatomic, strong) KPCategory *category;
 
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *author;

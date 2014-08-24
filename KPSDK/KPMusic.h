@@ -8,7 +8,11 @@
 
 #import "KPObject.h"
 
+@class KPMusicPlaylist;
+
 @interface KPMusic : KPObject
+
+@property (nonatomic, strong) KPMusicPlaylist *playlist;
 
 @property (nonatomic, strong) NSString *soundcloudId;
 @property (nonatomic, strong) NSString *name;

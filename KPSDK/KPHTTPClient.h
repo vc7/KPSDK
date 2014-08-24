@@ -8,6 +8,11 @@
 
 #import "AFNetworking.h"
 
+@class KPCategory;
+@class KPAlbum;
+@class KPPlaylist;
+@class KPMusicPlaylist;
+
 typedef void (^KPHTTPClientSuccess)(NSURLSessionDataTask *task, id responseObject); //! @typedef KPHTTPClientSuccess the success callback
 typedef void (^KPHTTPClientFailure)(NSURLSessionDataTask *task, NSError *error);    //! @typedef KPHTTPClientFailure the falure callback
 
@@ -47,10 +52,10 @@ typedef void (^KPHTTPClientFailure)(NSURLSessionDataTask *task, NSError *error);
  @param success success callback, will return the operation and category array for response object if has any.
  @param failur failure callback, will return the operation and the error if has any.
  */
-- (void)getArticlesByCategoryId:(NSString *)objectId page:(NSInteger)page pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
-- (void)getArticlesByCategoryId:(NSString *)objectId page:(NSInteger)page success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
-- (void)getArticlesByCategoryId:(NSString *)objectId pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
-- (void)getArticlesByCategoryId:(NSString *)objectId success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
+- (void)getArticlesByCategory:(KPCategory *)category page:(NSInteger)page pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
+- (void)getArticlesByCategory:(KPCategory *)category page:(NSInteger)page success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
+- (void)getArticlesByCategory:(KPCategory *)category pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
+- (void)getArticlesByCategory:(KPCategory *)category success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
 
 #pragma mark - Album
 
@@ -77,10 +82,10 @@ typedef void (^KPHTTPClientFailure)(NSURLSessionDataTask *task, NSError *error);
  @param success success callback, will return the operation and category array for response object if has any.
  @param failur failure callback, will return the operation and the error if has any.
  */
-- (void)getPhotosByAlbumId:(NSString *)objectId page:(NSInteger)page pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
-- (void)getPhotosByAlbumId:(NSString *)objectId page:(NSInteger)page success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
-- (void)getPhotosByAlbumId:(NSString *)objectId pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
-- (void)getPhotosByAlbumId:(NSString *)objectId success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
+- (void)getPhotosByAlbum:(KPAlbum *)album page:(NSInteger)page pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
+- (void)getPhotosByAlbum:(KPAlbum *)album page:(NSInteger)page success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
+- (void)getPhotosByAlbum:(KPAlbum *)album pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
+- (void)getPhotosByAlbum:(KPAlbum *)album success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
 
 #pragma mark - Playlist
 
@@ -107,10 +112,10 @@ typedef void (^KPHTTPClientFailure)(NSURLSessionDataTask *task, NSError *error);
  @param success success callback, will return the operation and category array for response object if has any.
  @param failur failure callback, will return the operation and the error if has any.
  */
-- (void)getVideosByPlaylistId:(NSString *)objectId page:(NSInteger)page pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
-- (void)getVideosByPlaylistId:(NSString *)objectId page:(NSInteger)page success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
-- (void)getVideosByPlaylistId:(NSString *)objectId pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
-- (void)getVideosByPlaylistId:(NSString *)objectId success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
+- (void)getVideosByPlaylist:(KPPlaylist *)playlist page:(NSInteger)page pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
+- (void)getVideosByPlaylist:(KPPlaylist *)playlist page:(NSInteger)page success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
+- (void)getVideosByPlaylist:(KPPlaylist *)playlist pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
+- (void)getVideosByPlaylist:(KPPlaylist *)playlist success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
 
 #pragma mark - Music Playlist
 
@@ -137,9 +142,9 @@ typedef void (^KPHTTPClientFailure)(NSURLSessionDataTask *task, NSError *error);
  @param success success callback, will return the operation and category array for response object if has any.
  @param failur failure callback, will return the operation and the error if has any.
  */
-- (void)getMusicsByPlaylistId:(NSString *)objectId page:(NSInteger)page pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
-- (void)getMusicsByPlaylistId:(NSString *)objectId page:(NSInteger)page success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
-- (void)getMusicsByPlaylistId:(NSString *)objectId pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
-- (void)getMusicsByPlaylistId:(NSString *)objectId success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
+- (void)getMusicsByPlaylist:(KPPlaylist *)playlist page:(NSInteger)page pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
+- (void)getMusicsByPlaylist:(KPPlaylist *)playlist page:(NSInteger)page success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
+- (void)getMusicsByPlaylist:(KPPlaylist *)playlist pageSize:(NSInteger)pageSize success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
+- (void)getMusicsByPlaylist:(KPPlaylist *)playlist success:(KPHTTPClientSuccess)success failure:(KPHTTPClientFailure)failure;
 
 @end

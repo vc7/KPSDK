@@ -1,4 +1,4 @@
-:warning: The source api has been closed, this KLSDK is no longer uasable.
+:warning: The source api has been closed ([announcement](https://www.facebook.com/groups/unlimited.kptaipei.tw/permalink/416276855205003/)), this KLSDK is no longer uasable.
 
 # KPSDK
 

@@ -1,3 +1,5 @@
+:warning: The source api has been terminated, this KLSDK is no longer uasable.
+
 # KPSDK
 
 This is the SDK for the "柯文哲 野生官網 Unlimited" api ([http://unlimited.kptaipei.tw/](http://unlimited.kptaipei.tw/)), the right of the data is belongs to the orgnization. 

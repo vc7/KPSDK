@@ -1,4 +1,4 @@
-:warning: The source api has been terminated, this KLSDK is no longer uasable.
+:warning: The source api has been closed, this KLSDK is no longer uasable.
 
 # KPSDK
 
